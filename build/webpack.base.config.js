@@ -18,7 +18,7 @@ module.exports = {
   resolve: {
     extensions: ['.vue', '.js'],
     alias: {
-      '@src': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '../src/')
     }
   },
   module: {
@@ -37,7 +37,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: '[name].[ext]?[hash]'
+          name: 'images/[name].[ext]?[hash]'
         }
       },
       {
@@ -48,6 +48,17 @@ module.exports = {
             fallback: 'vue-style-loader'
           })
           : ['vue-style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        test: /\.(eot|woff|svg|ttf|woff2|)(\?|$)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]'
+            }
+          }
+        ]
       }
     ]
   },

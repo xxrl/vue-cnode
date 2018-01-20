@@ -1,6 +1,7 @@
 import 'normalize.css'
 import 'flex.css'
-import './style/commom.less'
+import './style/iconfont/iconfont.css'
+import './style/common.less'
 import Vue from 'vue'
 import App from './App.vue'
 import { createStore } from './store'
