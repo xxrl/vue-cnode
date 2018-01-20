@@ -12,6 +12,8 @@
   </div>
 </template>
 <script>
+  import topic from '@/api/topic'
+
   export default {
     data () {
       return {
@@ -38,6 +40,10 @@
           }
         ]
       }
+    },
+    async created () {
+      const res = await topic.getTopics()
+      console.log(res)
     }
   }
 </script>

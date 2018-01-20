@@ -16,7 +16,7 @@ export function createRouter () {
         name: 'index',
         component: Index
       },
-      { path: '*', redirect: '/404' }
+      { path: '/', redirect: '/404' }
     ]
   })
 }

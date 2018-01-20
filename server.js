@@ -1,3 +1,4 @@
+require('./config')
 const fs = require('fs')
 const path = require('path')
 const LRU = require('lru-cache')
@@ -57,7 +58,8 @@ app.use(favicon('./public/logo-48.png'))
 app.use('/dist', serve('./dist', true))
 app.use('/public', serve('./public', true))
 app.use('/manifest.json', serve('./manifest.json', true))
-app.use('/service-worker.js', serve('./dist/service-worker.js'))
+app.use('/service-worker.js', serve('./service-worker.js'))
+app.use('/config.js', serve('./config.js'))
 
 app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
